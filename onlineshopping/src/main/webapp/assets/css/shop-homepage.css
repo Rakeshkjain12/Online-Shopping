@@ -5,4 +5,25 @@
  */
 body {
   padding-top: 56px;
+  heigth:100%;
 }
+html{
+	heigth:100%;
+}
+ .wrapper{
+     min-height: 100%;
+     position: relative;
+ }
+ 
+ .footer{
+ position: absolute;
+ bottom: 15px;
+ height: 60px;
+ }
+ 
+ .content{
+ 
+ padding-bottom: 90px;
+ 
+  
+ }
