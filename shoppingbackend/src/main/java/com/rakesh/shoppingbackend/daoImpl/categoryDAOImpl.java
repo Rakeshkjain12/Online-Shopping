@@ -3,57 +3,97 @@ package com.rakesh.shoppingbackend.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.rakesh.shoppingbackend.dao.CategoryDAO;
 import com.rakesh.shoppingbackend.dto.Category;
 
-
 @Repository("categoryDAO")
+@Transactional
 public class categoryDAOImpl implements CategoryDAO {
+
+	@Autowired
+	private SessionFactory sf;
+      
 	
-	private static List<Category> categories=new ArrayList<Category>();
-     
-	static {
-		
-		Category c=new Category();
-		c.setId(1);
-		c.setName("Television");
-		c.setDescription("This is some description for television");
-		c.setImageURL("img1");
-		categories.add(c);
-		
-		c=new Category();
-		c.setId(2);
-		c.setName("Mobile");
-		c.setDescription("This is some description for Mobile");
-		c.setImageURL("img2");
-		categories.add(c);
-		
-		c=new Category();
-		c.setId(3);
-		c.setName("Laptop");
-		c.setDescription("This is some description for Laptop");
-		c.setImageURL("img3");
-		categories.add(c);
-		
-	}
+	
+	/*
+	 * private static List<Category> list=new ArrayList<Category>(); static {
+	 * Category category=new Category(); category.setId(1);
+	 * category.setName("Laptop"); category.setDescription("This is Laptop");
+	 * category.setImageURL("img_1"); category.setActive(true);
+	 * 
+	 * list.add(category);
+	 * 
+	 * category=new Category(); category.setId(2); category.setName("desktop");
+	 * category.setDescription("This is desktop"); category.setImageURL("img_1");
+	 * category.setActive(true);
+	 * 
+	 * list.add(category); }
+	 */
+	
 	
 	@Override
 	public List<Category> list() {
-		return categories;
+		String selectActiveCategory="From Category where active=:active";
+		Query query=sf.getCurrentSession().createQuery(selectActiveCategory);
+		query.setParameter("active", true);
+		return query.getResultList();
+		
+		/* return list; */
 	}
 
 	@Override
 	public Category get(int id) {
 		
-		for (Category category : categories) {
-			if(category.getId()==id)
-			{
-				return category;
-			}
+		/*
+		 * for (Category category : list) { if(category.getId()==id) { return category;
+		 * } } return null;
+		 */
+		
+		return sf.getCurrentSession().get(Category.class,Integer.valueOf(id));
+	}
+
+	@Override
+	public boolean add(Category category) {
+		try {
+			sf.getCurrentSession().save(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
 		}
-		return null;
+	}
+
+	@Override
+	public boolean update(Category category) {
+		try {
+	        sf.getCurrentSession().update(category);
+	        return true;
+		}catch(Exception ex)
+		{  
+			ex.printStackTrace();
+			  return false;
+		}
+	      
+	}
+
+	@Override
+	public boolean delete(Category category) {
+              try {
+            	  sf.getCurrentSession().delete(category);
+            	  return true;
+              }catch(Exception ex) {
+            	  
+            		return false;
+              }
+	
 	}
 
 }

@@ -1,0 +1,20 @@
+
+<configuration>
+   <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+          <encoder>
+             <Pattern>%-5level %msg %d{HH:mm:ss.SS} %logger{36} %n</Pattern>
+          </encoder>
+   
+   
+   </appender>
+   
+   <logger name="com.rakesh" level="DEBUG" additivity="false">
+             <appender-ref ref="consoleAppender"/>
+      
+   </logger>
+   
+    <root level="INFO">
+       <appender-ref ref="consoleAppender"/>
+    </root>
+
+</configuration>
