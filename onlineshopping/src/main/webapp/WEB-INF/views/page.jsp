@@ -9,7 +9,7 @@
 <s:url var="js" value="/resources/js" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
 
@@ -26,23 +26,26 @@ window.menu='${title}';
 window.contextRoot='${contextRoot}';
 </script>
 
-<!-- Bootstrap core CSS -->
-<link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap4 core CSS -->
+<link href="${vendor}/bootstrap/css/bootstrap.css" rel="stylesheet"> 
+  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
 
 
 <!--DataTable Bootstrap -->
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 
+<%-- <link href="${css}/bootstrap.min.css" rel="stylesheet"> --%>
+<%-- <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+  <<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> --%>
 <!-- Custom styles for this template -->
-<link href="${css}/shop-homepage.css" rel="stylesheet">
-
-<!-- Test -->
-
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<!--bootstrap 3 for glyphicon icon  -->
+   <%--  <link href="${css}/bootstrap.min.css" rel="stylesheet">
+     <link href="${css}/bootstrap.css" rel="stylesheet">  --%> 
+     
+     <link href="${css}/glyphicon.css" rel="stylesheet">
+     <link href="${css}/myapp.css" rel="stylesheet">
 </head>
 
 <body>
@@ -74,6 +77,10 @@ window.contextRoot='${contextRoot}';
 		<%@include file="singleProduct.jsp" %>
 	</c:if>
 	
+		<c:if test="${userClickManageProducts == true }">
+		<%@include file="manageProducts.jsp" %>
+	</c:if>
+	
 	</div>
 	<!-- Footer -->
 	<jsp:include page="include/footer.jsp" />
@@ -83,15 +90,28 @@ window.contextRoot='${contextRoot}';
 	
 	<script src="${vendor}/bootstrap/js/bootstrap.bundle.min.js"></script>
 	
+	
+	
+	
+	
 	<!--DATA TABLE  Plugin -->
 	<script src="${js}/jquery.dataTables.js"></script>
+	
+	<!--jquery validation  -->
+	<script src="${js}/jquery.validate.js"></script>
+	<script src="${js}/jquery.validate.min.js"></script>
 	
 		<!--DATA TABLE Bootstrap js  -->
 	<script src="${js}/dataTables.bootstrap4.js"></script>
 		
 	
+	   <!-- BootBoxJs -->
+       <script src="${js}/bootbox.min.js"></script>
+	
 	<!--Self coded JavaScript  -->
     	<script src="${js}/myapp.js"></script>
+
+  
     	
     	</div>
 </body>

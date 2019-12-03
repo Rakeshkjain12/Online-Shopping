@@ -1,5 +1,8 @@
 package com.rakesh.onlines.exception;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,8 +36,15 @@ public class GlobalDefaultExceptionHandler {
 		
 		mv.addObject("errorTitle","Contact Administration");
 		
-		mv.addObject("errorDescription",ex.toString());
+	
 		
+		/* only for debugging */
+		
+		StringWriter sw=new StringWriter();
+		PrintWriter pw=new PrintWriter(sw);
+		ex.printStackTrace(pw);
+		
+		mv.addObject("errorDescription",sw.toString());
 		mv.addObject("title","Error");
 		
 		
