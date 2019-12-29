@@ -28,7 +28,7 @@ window.contextRoot='${contextRoot}';
 
 <!-- Bootstrap4 core CSS -->
 <link href="${vendor}/bootstrap/css/bootstrap.css" rel="stylesheet"> 
-  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+ <%--  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">  --%>
 
 
 <!--DataTable Bootstrap -->
@@ -50,6 +50,10 @@ window.contextRoot='${contextRoot}';
 
 <body>
 <div class="wrapper">
+
+
+
+    
 	<!-- Navigation -->
 	<jsp:include page="include/navbar.jsp" />
 

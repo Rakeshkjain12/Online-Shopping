@@ -26,7 +26,7 @@ public class ProductTestCases {
 	}
 	
 	
-	/*
+	
 	@Test
 	public void testCRUDProduct() {
 	
@@ -44,21 +44,24 @@ public class ProductTestCases {
 		
 		assertEquals("Something went worng while inserting a new product ", true,productDAO.add(product));
 		
-		//update
-		
-		product =productDAO.get(2);
-		product.setName("Samsung Galaxy S7");
-		
-		assertEquals("Something went worng while getting a product ", true,productDAO.update(product));
-		
-		//delete
-		assertEquals("Something went worng while delete exsiting product ", true,productDAO.delete(product));
-		
-		//Fetching 
-		assertEquals("Something went worng while fetching a list of product ", 6,productDAO.list().size());
+		/*
+		 * //update
+		 * 
+		 * product =productDAO.get(2); product.setName("Samsung Galaxy S7");
+		 * 
+		 * assertEquals("Something went worng while getting a product ",
+		 * true,productDAO.update(product));
+		 * 
+		 * //delete assertEquals("Something went worng while delete exsiting product ",
+		 * true,productDAO.delete(product));
+		 * 
+		 * //Fetching
+		 * assertEquals("Something went worng while fetching a list of product ",
+		 * 6,productDAO.list().size());
+		 */
 		
 	}
-	*/
+	
 	
 	
 	/*@Test
@@ -76,10 +79,12 @@ public class ProductTestCases {
 	 */
 	
 	
-	@Test
-	public void testListActiveLatestProduct() {
-		assertEquals("Something went worng while fetching a list of product ", 3,productDAO.getlatestActiveProducts(3).size());
-		
-	}
+	/*
+	 * @Test public void testListActiveLatestProduct() {
+	 * assertEquals("Something went worng while fetching a list of product ",
+	 * 3,productDAO.getlatestActiveProducts(3).size());
+	 * 
+	 * }
+	 */
 	
 }

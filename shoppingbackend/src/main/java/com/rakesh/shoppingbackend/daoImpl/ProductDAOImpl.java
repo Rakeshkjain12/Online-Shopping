@@ -42,7 +42,7 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		try {
 
-           sf.getCurrentSession().persist(product);
+           sf.getCurrentSession().save(product);
            return true;
 	}catch(Exception ex) {
 	       ex.printStackTrace();	
