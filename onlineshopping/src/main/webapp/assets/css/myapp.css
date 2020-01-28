@@ -113,4 +113,6 @@ input:checked + .slider:before {
     /* To center horizontally */
     margin: 0 auto;
 }
- 
+.table-responsive{
+	overflow-x:inherit; 
+}

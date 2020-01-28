@@ -33,7 +33,7 @@ public class HibernateConfig {
 	}
 	
 	
-	@Bean
+	@Bean("dataSource")
 	public DataSource getDataSource() {
 		BasicDataSource ds=new BasicDataSource();
 		ds.setDriverClassName(env.getProperty("jdbc.driverClassName"));
