@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <spring.version>4.3.5.RELEASE</spring.version>
-      <mysql.version>5.1.46</mysql.version>
+      <mysql.version>8.0.16</mysql.version>
       <hibernate.version>5.2.7.Final</hibernate.version>
       <dbcp2.version>2.1.1</dbcp2.version>
       <jackson.version>2.9.8</jackson.version>
